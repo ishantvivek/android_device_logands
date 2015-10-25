@@ -122,7 +122,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.zygote.disable_gl_preload=true \
     persist.radio.multisim.config=dsds \
 	ro.cm.hardware.cabc=/sys/class/mdnie/mdnie/cabc \
-	cm.updater.uri=http://ota.androidev.pp.ua \
+	cm.updater.uri=http://ota.androiddev.pp.ua \
 	ro.telephony.call_ring.multiple=0 \
 	ro.telephony.call_ring=0
     
