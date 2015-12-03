@@ -145,25 +145,25 @@ TARGET_USES_LOGD := false
 # jemalloc causes a lot of random crash on free()
 MALLOC_IMPL := dlmalloc
 
-BOARD_SEPOLICY_DIRS += \
-    device/samsung/logands/sepolicy
+#BOARD_SEPOLICY_DIRS += \
+#    device/samsung/logands/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-    file_contexts \
-    property_contexts \
-    service_contexts \
-    bkmgrd.te \
-    device.te \
-	surfaceflinger.te \
-	bluetooth.te \
-    geomagneticd.te \
-    gpsd.te \
-    init.te \
-    immvibed.te \
-    kernel.te \
-    macloader.te \
-    rild.te \
-    shell.te \
-    system_server.te \
-    tvserver.te \
-    vclmk.te
+#BOARD_SEPOLICY_UNION += \
+#    file_contexts \
+#    property_contexts \
+#    service_contexts \
+#    bkmgrd.te \
+#    device.te \
+#	 surfaceflinger.te \
+#	 bluetooth.te \
+#    geomagneticd.te \
+#    gpsd.te \
+#    init.te \
+#    immvibed.te \
+#    kernel.te \
+#    macloader.te \
+#    rild.te \
+#    shell.te \
+#    system_server.te \
+#    tvserver.te \
+#    vclmk.te

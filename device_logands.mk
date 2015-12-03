@@ -82,6 +82,10 @@ PRODUCT_PACKAGES += \
 # Samsung Doze
 PRODUCT_PACKAGES += \
 	SamsungDoze
+	
+# GPS/RIL
+PRODUCT_PACKAGES += \
+	libstlport	
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
