@@ -45,13 +45,7 @@ PRODUCT_PACKAGES += \
 # Insecure ADBD
 ADDITIONAL_DEFAULT_PROPERTIES += \
 	ro.adb.secure=0 \
-	persist.service.adb.enable=0
-
-# Filesystem management tools
-PRODUCT_PACKAGES += \
-	make_ext4fs \
-    e2fsck \
-    setup_fs
+	persist.service.adb.enable=1
 	
 # Open-source lights HAL
 PRODUCT_PACKAGES += \
@@ -64,13 +58,13 @@ PRODUCT_PACKAGES += \
 	audio.r_submix.default \
 	audio.primary.default
 
-# Device-specific packages
-PRODUCT_PACKAGES += \
-	SamsungServiceMode
-
 # KSM
+#PRODUCT_PROPERTY_OVERRIDES += \
+#	ro.ksm.default=1
+
+# ART
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.ksm.default=1	
+    dalvik.vm.dex2oat-flags=--no-watch-dog	
 	
 # Wi-Fi
 PRODUCT_PACKAGES += \
@@ -80,8 +74,8 @@ PRODUCT_PACKAGES += \
 	wpa_supplicant.conf
 
 # Samsung Doze
-PRODUCT_PACKAGES += \
-	SamsungDoze
+#PRODUCT_PACKAGES += \
+#	SamsungDoze
 	
 # GPS/RIL
 PRODUCT_PACKAGES += \

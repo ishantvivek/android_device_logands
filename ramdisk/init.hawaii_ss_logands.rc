@@ -521,15 +521,6 @@ on post-fs
 	#	class late_start
 	#	disabled
 
-# create filesystem if necessary
-	service setup_fs /system/bin/setup_fs \
-				/dev/block/mmcblk0p15 \
-				/dev/block/mmcblk0p11
-		class core
-		user root
-		group root
-		oneshot
-
 #bosch sensor deamon
 	service sensord /system/bin/sensord
 		class main
