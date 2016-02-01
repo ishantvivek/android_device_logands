@@ -65,6 +65,9 @@ WIFI_BAND                   := 802_11_ABG
 TARGET_SCREEN_HEIGHT := 800
 TARGET_SCREEN_WIDTH := 480
 
+# Enable WEBGL in WebKit
+ENABLE_WEBGL                 := true
+
 # Hardware rendering
 BOARD_EGL_CFG := device/samsung/logands/configs/egl.cfg
 USE_OPENGL_RENDERER := true
@@ -140,7 +143,10 @@ BOARD_HARDWARE_CLASS := hardware/samsung/cmhw/ device/samsung/logands/cmhw/
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/logands/include
 
 # Compat
-TARGET_USES_LOGD := false
+#TARGET_USES_LOGD := false
+
+# MTP
+BOARD_MTP_DEVICE := /dev/mtp_usb
 
 # jemalloc causes a lot of random crash on free()
 MALLOC_IMPL := dlmalloc
