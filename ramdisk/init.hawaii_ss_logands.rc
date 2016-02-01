@@ -6,17 +6,17 @@ on early-init
 
 on init
 # See storage config details at http://source.android.com/tech/storage/
-	symlink /sdcard /mnt/sdcard
+    symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
-	export SECONDARY_STORAGE /storage/sdcard1
+    export SECONDARY_STORAGE /storage/sdcard1
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
     mkdir /storage/sdcard1 0700 root root
 
 # To store widevine keybox
     symlink /data/app /factory
-	symlink /efs /factory
-	symlink /dev/block/mmcblk0p11 /dev/block/param
+    symlink /efs /factory
+   symlink /dev/block/mmcblk0p11 /dev/block/param
 
 on post-fs-data
 # we will remap this as /storage/sdcard with the sdcard fuse tool
@@ -48,7 +48,7 @@ on post-fs-data
  # permissions for bluetooth.
     setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
     chown bluetooth net_bt_stack ro.bt.bdaddr_path
-	chown bluetooth net_bt_stack /dev/ttyS0
+    chown bluetooth net_bt_stack /dev/ttyS0
     chmod 0600 /dev/ttyS0
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
@@ -139,6 +139,8 @@ on boot
 	setprop sys.io.scheduler noop
 # SISO-ANDR_PERF :: END
 
+    write /sys/fs/selinux/enforce 0
+
     setprop ro.build.product hawaii
     setprop ro.product.device hawaii
     
@@ -200,7 +202,7 @@ on boot
     chown system system /dev/ttyS2
     chmod 0770 /dev/ttyS2
 	
-	chmod 0644 /proc/cmdline
+    chmod 0644 /proc/cmdline
 
 # GPS UART
     chown gps system /dev/ttyS1
