@@ -339,6 +339,7 @@ on boot
    chown gps radio /sys/class/power_supply/battery/gps
    chown system radio /sys/class/power_supply/battery/wifi
    chown system radio /sys/class/power_supply/battery/lte
+   chown system radio /sys/class/power_supply/battery/lcd
 
 # Thermistor node
     chown radio system /sys/devices/platform/sec-thermistor/temp_adc
