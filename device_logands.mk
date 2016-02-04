@@ -45,11 +45,20 @@ PRODUCT_PACKAGES += \
 # Insecure ADBD
 ADDITIONAL_DEFAULT_PROPERTIES += \
 	ro.adb.secure=0 \
-	ro.debuggable=1 \
 	ro.secure=0 \
-	persist.sys.root_access=3 \
 	persist.service.adb.enable=1
 	
+# Filesystem management tools
+PRODUCT_PACKAGES += \
+    make_ext4fs \
+    e2fsck \
+    setup_fs
+    
+# IPv6 tethering
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes
+   
 # Open-source lights HAL
 PRODUCT_PACKAGES += \
 	lights.hawaii
@@ -62,8 +71,12 @@ PRODUCT_PACKAGES += \
 	audio.primary.default
 
 # KSM
-#PRODUCT_PROPERTY_OVERRIDES += \
-#	ro.ksm.default=1
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.ksm.default=1
+	
+# Use 3 threads for Dex2Oat.
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.fw.dex2oat_thread_count=3
 
 # ART
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -132,6 +145,10 @@ PRODUCT_PACKAGES += \
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.kernel.android.checkjni=0 \
 #    dalvik.vm.checkjni=false
+
+  # Disable sending usage data
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.nocheckin=1 
 
 # MTP
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
