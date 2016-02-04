@@ -608,10 +608,11 @@ on property:init.svc.macloader=stopped
 # end of wifi
 
 	service gpsd /system/bin/glgps -c /system/etc/gps/glconfig.xml
+		setenv LD_PRELOAD /system/lib/libglgps-compat.so
 		class late_start
 		user gps
 		group system root inet radio wifi sdcard_rw
-
+		
 # Kexec enable
 #	service kexec /system/kexec/kexec.sh
 #		oneshot
