@@ -3301,21 +3301,24 @@ public class TelephonyManager {
      * @hide
      */
     public static void setTelephonyProperty(int phoneId, String property, String value) {
-        
+
         if (!SubscriptionManager.isValidPhoneId(phoneId)) {
             Rlog.d(TAG, "setTelephonyProperty: invalid phoneId=" + phoneId +
                     " property=" + property + " value: " + value);
             return;
         }
-
         if (phoneId > 0) {
-            property += "_" + phoneId;
-        }
+
+ property += "_" + phoneId;
+
+         }
+
 
         Rlog.d(TAG, "setTelephonyProperty: success phoneId=" + phoneId +
-                 " property=" + property + " value: " + value);
-        SystemProperties.set(property, value);
-    }
+                " property=" + property + " value: " + value);
+
++ SystemProperties.set(property, value);
+}
 
     /**
      * Convenience function for retrieving a value from the secure settings
@@ -3412,22 +3415,26 @@ public class TelephonyManager {
      */
     public static String getTelephonyProperty(int phoneId, String property, String defaultVal) {
         if (!SubscriptionManager.isValidPhoneId(phoneId)) {
-            Rlog.d(TAG, "getTelephonyProperty: invalid phoneId=" + phoneId +
-                    " property=" + property);
-            return defaultVal;
-        }
-       
-	    if (phoneId > 0) {
-            property += "_" + phoneId;
-        }
 
+ Rlog.d(TAG, "getTelephonyProperty: invalid phoneId=" + phoneId +
+
+ " property=" + property);
+
+ return defaultVal;
+
+ }
+
+ if (phoneId > 0) {
+
+ property += "_" + phoneId;
+        }
         String propVal = SystemProperties.get(property);
-
         Rlog.d(TAG, "getTelephonyProperty: return propVal='" + propVal + "' phoneId=" + phoneId
-                + " property='" + property + "' defaultVal='" + defaultVal);
+        + " property='" + property + "' defaultVal='" + defaultVal);
 
-        return propVal.isEmpty() ? defaultVal : propVal;
-    }
+ return propVal.isEmpty() ? defaultVal : propVal;
+
+     }
 
     /** @hide */
     public int getSimCount() {
