@@ -3301,7 +3301,6 @@ public class TelephonyManager {
      * @hide
      */
     public static void setTelephonyProperty(int phoneId, String property, String value) {
-        
         if (!SubscriptionManager.isValidPhoneId(phoneId)) {
             Rlog.d(TAG, "setTelephonyProperty: invalid phoneId=" + phoneId +
                     " property=" + property + " value: " + value);
@@ -3313,7 +3312,7 @@ public class TelephonyManager {
         }
 
         Rlog.d(TAG, "setTelephonyProperty: success phoneId=" + phoneId +
-                 " property=" + property + " value: " + value);
+                " property=" + property + " value: " + value);
         SystemProperties.set(property, value);
     }
 
@@ -3416,8 +3415,8 @@ public class TelephonyManager {
                     " property=" + property);
             return defaultVal;
         }
-       
-	    if (phoneId > 0) {
+
+        if (phoneId > 0) {
             property += "_" + phoneId;
         }
 
